@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <title>Encrypted Chat Network</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <style>
+    html, body {
+      height: 100%;
+    }
+    .backgroundcolor {
+      background-color: #89C4F4;
+    }
+    .h-90 {
+      height: 90%;
+    }
+    .h-10 {
+      height: 10%;
+    }
+    textarea {
+      resize: none;
+    }
+    .pos-mod{
+      position: fixed;
+      bottom: 0;
+      right: 0;
+    }
+    .zindex-top{
+      z-index: 10;
+    }
+    .zindex-bottom{
+      z-index: 0;
+    }
+    </style>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" type="text/javascript"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js" type="text/javascript"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.4/socket.io.js"></script>
+    <script src="./js/main.js" type="application/javascript"></script>
+    <script src="./js/sockets.js" type="application/javascript"></script>
+  </head>
+  <body class="backgroundcolor" ng-app="webApp" ng-controller="appController">
+    <div class="input-group float-left mx-2 my-2" style="width:15%">
+      <input type="text" class="form-control" placeholder="Name" maxlength="16" ng-model="username" id="namenamename"></input>
+      <div class="input-group-append">
+        <button class="btn btn-outline-secondary bg-light" type="button" ng-click="updateName()">Save</button>
+      </div>
+    </div>
+    <div class="container h-100 bg-white border-right border-left p-0">
+      <!-- MessageView Section -->
+      <div class="h-90 overflow-auto">
+        <!-- message -->
+        <div class="pos-mod mx-2 my-1">
+          <input type="checkbox" ng-model="encryptYN"> Encrypt</input>
+        </div>
+        <div class="p-3 w-100" ng-repeat="message in messages">
+          <svg width="67" height="67" class="rounded-circle float-left">
+            <title>{{message.author}}</title>
+            <rect width="100%" height="100%" fill="#34495E"></rect>
+            <text x="50%" y="50%" fill="#FFFFFF" dy=".4em" dx="-.3em">{{message.id}}</text>
+          </svg>
+          <div class="p-1 ml-2 bg-light border rounded-lg text-wrap float-left text-break" style="max-width: 25rem;">
+            {{message.content}}
+          </div>
+          <div class="clearfix"></div>
+        </div>
+      </div>
+      <!-- Input Section -->
+
+      <div class="h-10 input-group">
+        <textarea placeholder="Message" class="col-10 px-2 py-2 border" id="messageForm" ng-model="messageInput" type="formcontrol"></textarea>
+        <button id="submitMessage" type="button" class="btn btn-primary border border-primary rounded-0 col-2" ng-click="sendMessage()">Send</button>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+  </body>
+</html>

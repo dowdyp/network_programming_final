@@ -1,0 +1,22 @@
+{
+  "name": "network_programming_final",
+  "version": "1.0.0",
+  "description": "encrypted chat network",
+  "main": "index.js",
+  "scripts": {
+    "test": "lol"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dowdyp/networkprogfinalproj.git"
+  },
+  "author": "parker",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dowdyp/networkprogfinalproj/issues"
+  },
+  "homepage": "https://github.com/dowdyp/networkprogfinalproj#readme",
+  "dependencies": {
+    "openpgp": "^4.7.1"
+  }
+}
